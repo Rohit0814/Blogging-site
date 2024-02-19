@@ -35,7 +35,7 @@
 
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <a href="/register"><button type="button" class="btn btn-warning">Sign-up</button></a>
                 </div>
             </div>
         </div>

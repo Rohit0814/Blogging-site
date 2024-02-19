@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <h1>Demo {{ $name }} &nbsp;
-        @if ($id !== null)
+    <h1>Demo &nbsp;
+        {{-- @if ($id !== null)
             {{ $id }}
         @else
             guest
-        @endif
+        @endif --}}
     </h1>
 </body>
 

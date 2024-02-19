@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\InvokabelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-    return view('welcome');
-});
+Route::get('/',[ExampleController::class,'index']);
+Route::get('/about',[ExampleController::class,'about']);
 
-Route::get('/about', function(){
-    return view('about');
-});
+Route::get('/demo',InvokabelController::class);
+Route::get('/register',[ExampleController::class,'register']);
+Route::post('/register',[ExampleController::class,'saveData']);
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');
