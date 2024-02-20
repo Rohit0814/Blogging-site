@@ -18,7 +18,19 @@ class ExampleController extends Controller
         return view("register");
     }
 
-    public function saveData(){
+    public function saveData(Request $request){
+        $request->validate(
+            [
+                'first_name' => 'required',
+                'last_name'=> 'required',
+                'password'=>'required',
+                'confirm_password' => 'required|same:password',
+                'username' => 'required',
+                'address' => 'required',
+                'zip'=>'required',
+                'email'=>'required|email',
+            ]
+        );
         return view("welcome");
     }
 }

@@ -21,7 +21,7 @@ Route::get('/about',[ExampleController::class,'about']);
 
 Route::get('/demo',InvokabelController::class);
 Route::get('/register',[ExampleController::class,'register']);
-Route::post('/register',[ExampleController::class,'saveData']);
+Route::post('/create-user',[ExampleController::class,'saveData']);
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');

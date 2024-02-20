@@ -31,42 +31,88 @@
                     </div>
                     <div class="col-md-7 col-lg-8">
                         <h4 class="mb-3">Registration</h4>
-                        <form class="needs-validation" novalidate="" method="post">
+                        <form method="post" action="/create-user">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label for="firstName" class="form-label">First
                                         name</label>
-                                    <input type="text" class="form-control" id="firstName" name="first_name"
-                                        placeholder="" value="" required>
+                                    <input type="text" class="form-control" name="first_name"
+                                        value="{{ old('first_name') }}">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('first_name')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label for="lastName" class="form-label">Last name</label>
                                     <input type="text" class="form-control" id="lastName" name="last_name"
-                                        placeholder="" value="" required>
+                                        placeholder="" value="{{ old('last_name') }}">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('last_name')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
-                                <div class="col-12">
+
+                                <div class="col-sm-6">
+                                    <label for="firstName" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('password')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label for="lastName" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" name="confirm_password" placeholder=""
+                                        value="">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('confirm_password')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+
+                                <div class="col-12" style="display: block">
                                     <label for="username" class="form-label">Username</label>
                                     <div class="input-group has-validation">
                                         <span class="input-group-text">@</span>
                                         <input type="text" class="form-control" name="username" id="username"
-                                            placeholder="Username" required>
+                                            placeholder="Username"><br>
+                                        <span style="color:red;font-weight:bolder">
+                                            @error('username')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="email" class="form-label">Email <span
-                                            class="text-body-secondary">(Optional)</span></label>
+                                    <label for="email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="email"
                                         placeholder="you@example.com" name="email">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('email')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
                                 <div class="col-12">
                                     <label for="address" class="form-label">Address</label>
                                     <input type="text" class="form-control" id="address" placeholder="1234 Main St"
-                                        required name="address">
+                                        name="address">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('address')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
 
                                 <div class="col-12">
@@ -97,10 +143,12 @@
                                 <div class="col-md-3">
                                     <label for="zip" class="form-label">Zip</label>
                                     <input type="text" class="form-control" id="zip" placeholder=""
-                                        required="" name="zip">
-                                    <div class="invalid-feedback">
-                                        Zip code required.
-                                    </div>
+                                        name="zip">
+                                    <span style="color:red;font-weight:bolder">
+                                        @error('zip')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
                             </div>
 
@@ -116,7 +164,7 @@
 
                             <hr class="my-4">
 
-                            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to Register</button>
                         </form>
                     </div>
                 </main>
