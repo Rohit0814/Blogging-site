@@ -48,7 +48,7 @@
 
                                 <div class="col-md-5">
                                     <select class="form-select" id="country" name="country">
-                                        <option value="">Choose...</option>
+                                        <option value="">Choose Country...</option>
                                         <option value="us">United States</option>
                                         <option value="india">India</option>
                                     </select>
@@ -56,7 +56,7 @@
 
                                 <div class="col-md-4">
                                     <select class="form-select" id="state" name="state">
-                                        <option value="">Choose...</option>
+                                        <option value="">Choose State...</option>
                                         <option value="california">California</option>
                                         <option value="jharkhand">Jharkhand</option>
                                     </select>
@@ -68,7 +68,9 @@
 
                             <hr class="my-4">
 
-                            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to Register</button>
+                            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to
+                                Register</button><br><br>
+                            <h5>Already Register User <a href="{{ url('/login') }}">Login</a></h5>
                         </form>
                     </div>
                 </main>
@@ -76,6 +78,7 @@
                 <footer class="my-2 pt-5 text-body-secondary text-center text-small">
                     <p class="mb-1">© 2017–2023 Company Name</p>
                     <ul class="list-inline">
+                        <li class="list-inline-item"><a href="/">Home</a></li>
                         <li class="list-inline-item"><a href="#">Privacy</a></li>
                         <li class="list-inline-item"><a href="#">Terms</a></li>
                         <li class="list-inline-item"><a href="#">Support</a></li>

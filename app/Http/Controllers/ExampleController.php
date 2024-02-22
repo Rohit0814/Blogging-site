@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blogger;
 
 class ExampleController extends Controller
 {
@@ -18,6 +19,10 @@ class ExampleController extends Controller
         return view("register");
     }
 
+    public function login(){
+        return view("login");
+    }
+
     public function saveData(Request $request){
         $request->validate(
             [
@@ -31,6 +36,18 @@ class ExampleController extends Controller
                 'email'=>'required|email',
             ]
         );
-        return view("welcome");
+
+        $blogger = new Blogger();
+        $blogger->first_name= $request->first_name;
+        $blogger->last_name= $request->last_name;
+        $blogger->password = md5($request->password);
+        $blogger->username = $request->username;
+        $blogger->email = $request->email;
+        $blogger->address = $request->address;
+        $blogger->country = $request->country;
+        $blogger->state = $request->state;
+        $blogger->zip = $request->zip;
+        $blogger->save();
+        return redirect("/login");
     }
 }
