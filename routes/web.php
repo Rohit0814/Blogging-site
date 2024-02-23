@@ -23,6 +23,9 @@ Route::get('/demo',InvokabelController::class);
 Route::get('/register',[ExampleController::class,'register']);
 Route::get('/login',[ExampleController::class,'login']);
 Route::post('/create-user',[ExampleController::class,'saveData']);
+Route::get('/users/dashboard',[ExampleController::class,'dashboard']);
+
+Route::post('/create-session',[ExampleController::class,'createSession']);
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');

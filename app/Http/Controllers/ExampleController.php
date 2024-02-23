@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Blogger;
 
 class ExampleController extends Controller
@@ -13,6 +14,10 @@ class ExampleController extends Controller
 
     public function about(){
         return view("about");
+    }
+
+    public function dashboard(){
+        return view("dashboard");
     }
 
     public function register(){
@@ -50,4 +55,23 @@ class ExampleController extends Controller
         $blogger->save();
         return redirect("/login");
     }
+
+
+    public function createSession(Request $request){
+        $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    $credentials = $request->only('email', 'password');
+        if(Auth::guard('blogger')->attempt($credentials)){
+            //dd(Auth::guard('blogger'));
+            return redirect('/users/dashboard');
+        }
+        else{
+            return redirect('/login');
+        }
+    }
+
 }
+

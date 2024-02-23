@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'blogger' => [
+            'driver' => 'session',
+            'provider'=> 'bloggerProvider'  
+        ]
     ],
 
     /*
@@ -64,6 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'bloggerProvider' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Blogger::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

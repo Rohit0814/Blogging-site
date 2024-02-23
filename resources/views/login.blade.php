@@ -21,7 +21,8 @@
                     </div>
 
                     <div class="col-md-7 col-lg-8">
-                        <form>
+                        <form method="post" action="\create-session">
+                            @csrf
                             <div class="row g-3">
                                 <x-user-text-input divClassName='col-12' labelFor='Email' inputType='email'
                                     inputName='email' labelName='Email' />
