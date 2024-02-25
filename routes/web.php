@@ -23,9 +23,10 @@ Route::get('/demo',InvokabelController::class);
 Route::get('/register',[ExampleController::class,'register']);
 Route::get('/login',[ExampleController::class,'login']);
 Route::post('/create-user',[ExampleController::class,'saveData']);
-Route::get('/users/dashboard',[ExampleController::class,'dashboard']);
+Route::get('/users/dashboard',[ExampleController::class,'dashboard'])->middleware('blog');
 
 Route::post('/create-session',[ExampleController::class,'createSession']);
+Route::post('/users/logout',[ExampleController::class,'logout']);
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');

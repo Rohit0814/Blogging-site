@@ -9,7 +9,13 @@
 </head>
 
 <body>
-    <h1>Welcome User</h1>
+    <h1>Welcome {{ Auth::guard('blogger')->user()->first_name }} {{ Auth::guard('blogger')->user()->last_name }}</h1>
+
+
+    <form action="/users/logout" method="post">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
 </body>
 
 </html>

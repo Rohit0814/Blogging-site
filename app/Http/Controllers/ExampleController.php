@@ -17,14 +17,21 @@ class ExampleController extends Controller
     }
 
     public function dashboard(){
+        //dd(Auth::guard('blogger')->check());
         return view("dashboard");
     }
 
     public function register(){
+        if(Auth::guard('blogger')->check()){
+            return redirect('/users/dashboard');
+        }
         return view("register");
     }
 
     public function login(){
+        if(Auth::guard('blogger')->check()){
+            return redirect('/users/dashboard');
+        }
         return view("login");
     }
 
@@ -45,7 +52,7 @@ class ExampleController extends Controller
         $blogger = new Blogger();
         $blogger->first_name= $request->first_name;
         $blogger->last_name= $request->last_name;
-        $blogger->password = md5($request->password);
+        $blogger->password = bcrypt($request->password);
         $blogger->username = $request->username;
         $blogger->email = $request->email;
         $blogger->address = $request->address;
@@ -65,12 +72,17 @@ class ExampleController extends Controller
 
     $credentials = $request->only('email', 'password');
         if(Auth::guard('blogger')->attempt($credentials)){
-            //dd(Auth::guard('blogger'));
             return redirect('/users/dashboard');
         }
         else{
             return redirect('/login');
         }
+    }
+
+    public function logout(){
+        //dd(Auth::guard('blogger'));
+        Auth::guard('blogger')->logout();
+        return redirect('/');
     }
 
 }
