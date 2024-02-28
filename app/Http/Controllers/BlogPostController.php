@@ -30,4 +30,16 @@ class BlogPostController extends Controller
         $post->save();
         return redirect("/users/dashboard");
     }
+
+    public function trash(){
+        return view("trash");
+    }
+
+    public function delete($id){
+        $post = Post::find($id);
+        if(!is_null($post)){
+            $post->delete();
+        }
+        return redirect("/users/dashboard");
+    }
 }

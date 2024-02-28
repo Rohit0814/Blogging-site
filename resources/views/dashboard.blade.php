@@ -29,14 +29,17 @@
                         <div class="d-flex justify-content-between">
                             <div>
                                 <strong class="text-gray-dark">{{ $p->title }}</strong>
-                                <span class="d-block">{{ $p->content }}</span>
+                                <span class="d-block">{{ Str::limit($p->content, 50, '...') }}</span>
                             </div>
 
-                            <div>
+                            <div class="d-flex">
                                 <a href="#" type="button" class="btn btn-warning">Edit <i
                                         class="fa-solid fa-pen-to-square"></i></a> &nbsp; &nbsp;
-                                <a href="#" type="button" class="btn btn-danger">Move to Trash <i
-                                        class="fa-brands fa-bitbucket"></i></a>
+                                <form action="/posts/delete/{{ $p->post_id }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Move
+                                        to Trash <i class="fa-brands fa-bitbucket"></i></a>
+                                </form>
                             </div>
                         </div>
                     </div>

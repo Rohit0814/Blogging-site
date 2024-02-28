@@ -31,6 +31,9 @@ Route::post('/users/logout',[ExampleController::class,'logout']);
 Route::get('/users/post',[BlogPostController::class,'post']);
 Route::post('/users/posts',[BlogPostController::class,'create_post']);
 
+Route::post('/posts/delete/{id}',[BlogPostController::class,'delete']);
+Route::get('/posts/trash',[BlogPostController::class,'trash']);
+
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');
     return view('demo')->with($data);
