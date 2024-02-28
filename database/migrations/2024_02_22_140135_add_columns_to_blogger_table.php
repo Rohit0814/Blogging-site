@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('blogger', function (Blueprint $table) {
-            $table->integer('points')->default(0)->after('zip');
+           // $table->integer('points')->default(0)->after('zip');
         });
     }
 

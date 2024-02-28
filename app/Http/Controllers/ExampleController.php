@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 use App\Models\Blogger;
 
 class ExampleController extends Controller
@@ -18,7 +19,10 @@ class ExampleController extends Controller
 
     public function dashboard(){
         //dd(Auth::guard('blogger')->check());
-        return view("dashboard");
+        $post = Post::all();
+        $data = compact("post");
+        //dd($data);
+        return view("dashboard")->with($data);
     }
 
     public function register(){

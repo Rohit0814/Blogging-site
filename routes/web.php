@@ -29,6 +29,7 @@ Route::get('/users/dashboard',[ExampleController::class,'dashboard'])->middlewar
 Route::post('/create-session',[ExampleController::class,'createSession']);
 Route::post('/users/logout',[ExampleController::class,'logout']);
 Route::get('/users/post',[BlogPostController::class,'post']);
+Route::post('/users/posts',[BlogPostController::class,'create_post']);
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');
