@@ -30,6 +30,7 @@ Route::post('/create-session',[ExampleController::class,'createSession']);
 Route::post('/users/logout',[ExampleController::class,'logout']);
 Route::get('/users/post',[BlogPostController::class,'post']);
 Route::post('/users/posts',[BlogPostController::class,'create_post']);
+Route::get('/users/profile',[ExampleController::class,'profile']);
 
 Route::post('/posts/delete/{id}',[BlogPostController::class,'delete']);
 Route::get('/posts/trash',[BlogPostController::class,'trash']);

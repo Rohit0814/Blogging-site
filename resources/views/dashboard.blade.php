@@ -28,7 +28,8 @@
                     <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <strong class="text-gray-dark">{{ $p->title }}</strong>
+                                <a href=# style="color:black; text-decoration:none"><strong
+                                        class="text-gray-dark">{{ $p->title }}</strong></a>
                                 <span class="d-block">{{ Str::limit($p->content, 50, '...') }}</span>
                             </div>
 

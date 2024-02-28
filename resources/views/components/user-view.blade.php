@@ -31,7 +31,7 @@
                         aria-current="page">Dashboard</a></li>
                 <li class="nav-item"><a href="/users/post" class="nav-link">Post</a></li>
                 <li class="nav-item"><a href="/posts/trash" class="nav-link">Trash</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Profile</a></li>
+                <li class="nav-item"><a href="/users/profile" class="nav-link">Profile</a></li>
                 <form action="/users/logout" method="post">
                     @csrf
                     <li class="nav-item"><button type="submit" class="nav-link">Logout</button></li>
