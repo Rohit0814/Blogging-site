@@ -19,7 +19,7 @@ class ExampleController extends Controller
 
     public function dashboard(){
         //dd(Auth::guard('blogger')->check());
-        $post = Post::all();
+        $post = Post::all()->where("blog_id", '=' ,Auth::guard('blogger')->user()->blogger_id);
         $data = compact("post");
         //dd($data);
         return view("dashboard")->with($data);

@@ -32,8 +32,20 @@ class BlogPostController extends Controller
     }
 
     public function trash(){
-        return view("trash");
+        $posts = Post::onlyTrashed()->where("blog_id", '=' ,Auth::guard('blogger')->user()->blogger_id)->get();
+        $data = compact("posts");
+        return view("trash")->with($data);
     }
+
+
+    public function forceDelete($id){
+        $post = Post::withTrashed()->find($id);
+        if(!is_null($post)){
+            $post->forceDelete();
+        }
+        return redirect()->route("posts.trash");
+    }
+
 
     public function delete($id){
         $post = Post::find($id);
@@ -41,5 +53,13 @@ class BlogPostController extends Controller
             $post->delete();
         }
         return redirect("/users/dashboard");
+    }
+
+    public function restore($id){
+        $post = Post::onlyTrashed()->find($id);
+        if(!is_null($post)){
+            $post->restore();
+        }
+        return redirect()->route("posts.trash");
     }
 }

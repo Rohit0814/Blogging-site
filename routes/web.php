@@ -27,13 +27,15 @@ Route::post('/create-user',[ExampleController::class,'saveData']);
 Route::get('/users/dashboard',[ExampleController::class,'dashboard'])->middleware('blog');
 
 Route::post('/create-session',[ExampleController::class,'createSession']);
-Route::post('/users/logout',[ExampleController::class,'logout']);
-Route::get('/users/post',[BlogPostController::class,'post']);
-Route::post('/users/posts',[BlogPostController::class,'create_post']);
-Route::get('/users/profile',[ExampleController::class,'profile']);
+Route::post('/users/logout',[ExampleController::class,'logout'])->middleware('blog');;
+Route::get('/users/post',[BlogPostController::class,'post'])->middleware('blog');
+Route::post('/users/posts',[BlogPostController::class,'create_post'])->middleware('blog');
+Route::get('/users/profile',[ExampleController::class,'profile'])->middleware('blog');
 
-Route::post('/posts/delete/{id}',[BlogPostController::class,'delete']);
-Route::get('/posts/trash',[BlogPostController::class,'trash']);
+Route::post('/posts/delete/{id}',[BlogPostController::class,'delete'])->middleware('blog');
+Route::get('/posts/trash',[BlogPostController::class,'trash'])->name('posts.trash')->middleware('blog');
+Route::delete('/post/forcedelete/{id}',[BlogPostController::class,'forceDelete'])->middleware('blog');
+Route::post('/post/restore/{id}',[BlogPostController::class,'restore'])->middleware('blog');
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');
