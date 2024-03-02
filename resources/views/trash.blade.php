@@ -33,12 +33,12 @@
                             </div>
 
                             <div class="d-flex">
-                                <form method="post" action="/post/restore/{{ $p->post_id }}">
+                                <form method="post" action="/posts/restore/{{ $p->post_id }}">
                                     @csrf
                                     <button type="submit" class="btn btn-warning mx-2">Restore <i
                                             class="fa-solid fa-pen-to-square"></i></a>
                                 </form>
-                                <form action="/post/forcedelete/{{ $p->post_id }}" method="post">
+                                <form action="/posts/forcedelete/{{ $p->post_id }}" method="post">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Permanently Delete <i

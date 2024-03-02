@@ -24,18 +24,27 @@ Route::get('/demo',InvokabelController::class);
 Route::get('/register',[ExampleController::class,'register']);
 Route::get('/login',[ExampleController::class,'login']);
 Route::post('/create-user',[ExampleController::class,'saveData']);
-Route::get('/users/dashboard',[ExampleController::class,'dashboard'])->middleware('blog');
-
 Route::post('/create-session',[ExampleController::class,'createSession']);
-Route::post('/users/logout',[ExampleController::class,'logout'])->middleware('blog');;
-Route::get('/users/post',[BlogPostController::class,'post'])->middleware('blog');
-Route::post('/users/posts',[BlogPostController::class,'create_post'])->middleware('blog');
-Route::get('/users/profile',[ExampleController::class,'profile'])->middleware('blog');
 
-Route::post('/posts/delete/{id}',[BlogPostController::class,'delete'])->middleware('blog');
+Route::group(['middleware'=> 'blog', 'prefix'=> '/users'], function () {
+    Route::post('/logout',[ExampleController::class,'logout']);
+    Route::get('/post',[ExampleController::class,'post']);
+    Route::post('/posts',[ExampleController::class,'create_post']);
+    Route::post('/profile',[ExampleController::class,'profile']);
+    Route::get('/dashboard',[ExampleController::class,'dashboard']);
+});
+
+Route::group(['middleware' => 'blog' , 'prefix' => '/posts'], function() {
+    Route::post('/delete/{id}',[BlogPostController::class,'delete']);
+    Route::get('/trash',[BlogPostController::class,'trash'])->name('posts.trash');
+    Route::delete('/forcedelete/{id}',[BlogPostController::class,'forceDelete']);
+    Route::post('/restore/{id}',[BlogPostController::class,'restore']);
+});
+
+/*Route::post('/posts/delete/{id}',[BlogPostController::class,'delete'])->middleware('blog');
 Route::get('/posts/trash',[BlogPostController::class,'trash'])->name('posts.trash')->middleware('blog');
-Route::delete('/post/forcedelete/{id}',[BlogPostController::class,'forceDelete'])->middleware('blog');
-Route::post('/post/restore/{id}',[BlogPostController::class,'restore'])->middleware('blog');
+Route::delete('/posts/forcedelete/{id}',[BlogPostController::class,'forceDelete'])->middleware('blog');
+Route::post('/posts/restore/{id}',[BlogPostController::class,'restore'])->middleware('blog');*/
 
 Route::get('/demo/{name}/{id?}',function($name, $id=null){
     $data = compact('name','id');
