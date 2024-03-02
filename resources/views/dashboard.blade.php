@@ -34,8 +34,8 @@
                             </div>
 
                             <div class="d-flex">
-                                <a href="#" type="button" class="btn btn-warning">Edit <i
-                                        class="fa-solid fa-pen-to-square"></i></a> &nbsp; &nbsp;
+                                <a href="/posts/update/{{ $p->post_id }}" type="button" class="btn btn-warning">Edit
+                                    <i class="fa-solid fa-pen-to-square"></i></a> &nbsp; &nbsp;
                                 <form action="/posts/delete/{{ $p->post_id }}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Move

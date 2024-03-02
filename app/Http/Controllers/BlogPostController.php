@@ -62,4 +62,20 @@ class BlogPostController extends Controller
         }
         return redirect()->route("posts.trash");
     }
+
+    public function updateView($id){
+        $post = Post::all()->where('post_id','=', $id);
+        $data = compact("post");
+        return view("update")->with($data);
+    }
+
+    public function updateData($id, Request $request){
+        $post = Post::find($id);
+        if(!is_null($post)){
+            $post->title = $request->update_title;
+            $post->content = $request->update_content;
+            $post->save();
+        }
+        return redirect()->route("users.dashboard");
+    }
 }

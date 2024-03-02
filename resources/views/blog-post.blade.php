@@ -22,7 +22,7 @@
                     {{ $message }}
                 @enderror
             </span>
-            <form action = '' method="">
+        </form>
     </div>
 
 </x-user-view>
