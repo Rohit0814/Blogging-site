@@ -15,4 +15,9 @@ class Post extends Model
     protected $table = "posts";
 
     protected $primaryKey = "post_id";
+
+    public function blogger()
+    {
+        return $this->belongsTo(Blogger::class, 'blog_id', 'blogger_id');
+    }
 }

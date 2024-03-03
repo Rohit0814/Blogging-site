@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blogger;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,7 +82,8 @@ class BlogPostController extends Controller
     }
 
     public function post_view($id){
-        $post = Post::all()->where("post_id",'=', $id);
+        $post = Post::with('blogger')->find($id);
+        //$post = Post::all()->where("post_id",'=', $id);
         $data = compact('post');
         //dd($blogger);
         return view("blog-view")->with($data);

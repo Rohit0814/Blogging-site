@@ -31,7 +31,7 @@ Route::group(['middleware' => 'blog' , 'prefix' => '/posts'], function() {
     Route::post('/restore/{id}',[BlogPostController::class,'restore']);
     Route::get('/update/{id}',[BlogPostController::class,'updateView']);
     Route::post('/update/{id}',[BlogPostController::class,'updateData']);
-    Route::get('/content/{id}',[BlogPostController::class,'post_view']);
+    Route::get('/content/{id}',[BlogPostController::class,'post_view'])->withoutMiddleware('blog');
     //Route::get('/blogging/{id}',[BlogPostController::class,'data_show']);
 });
 

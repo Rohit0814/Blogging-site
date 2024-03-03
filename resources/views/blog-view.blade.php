@@ -2,13 +2,13 @@
 
 @section('main-section')
     <div class="container my-2">
-        @foreach ($post as $p)
-            <article class="blog-post">
-                <h2 class="display-5  mb-1" style="font-weight: bolder">{{ $p->title }}</h2>
-                <p class="blog-post-meta">{{ $p->created_at->format('jS M') }} by <a href="#">Mark</a></p>
+        <article class="blog-post">
+            {{-- {{ dd($post) }} --}}
+            <h2 class="display-5  mb-1" style="font-weight: bolder">{{ $post->title }}</h2>
+            <p class="blog-post-meta">{{ $post->created_at->format('jS M') }} by <a
+                    href="#">{{ $post->blogger->first_name }} {{ $post->blogger->last_name }}</a></p>
 
-                <p>{{ $p->content }}</p>
-            </article>
-        @endforeach
+            <p>{{ $post->content }}</p>
+        </article>
     </div>
 @endsection
