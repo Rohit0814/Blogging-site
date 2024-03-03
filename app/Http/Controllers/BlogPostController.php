@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogger;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use function Termwind\render;
 
 class BlogPostController extends Controller
 {
@@ -77,5 +80,12 @@ class BlogPostController extends Controller
             $post->save();
         }
         return redirect()->route("users.dashboard");
+    }
+
+    public function post_view($id){
+        $post = Post::all()->where("post_id",'=', $id);
+        $data = compact('post');
+        //dd($blogger);
+        return view("blog-view")->with($data);
     }
 }

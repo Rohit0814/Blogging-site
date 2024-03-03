@@ -28,7 +28,8 @@
                                 <h3 class="mb-0">{{ $p->title }}</h3>
                                 <div class="mb-1 text-body-secondary">{{ $p->created_at->format('jS M') }}</div>
                                 <p class="card-text mb-auto">{{ Str::limit($p->content, 80, ' ...') }}</p>
-                                <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                                <a href="/posts/content/{{ $p->post_id }}"
+                                    class="icon-link gap-1 icon-link-hover stretched-link">
                                     Continue reading
                                     <svg class="bi">
                                         <use xlink:href="#chevron-right"></use>
