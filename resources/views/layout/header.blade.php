@@ -33,10 +33,23 @@
                         aria-label="Search">
                 </form>
 
-                <div class="text-end">
-                    <a href="/login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                    <a href="/register"><button type="button" class="btn btn-warning">Sign-up</button></a>
-                </div>
+                @if (Auth::guard('blogger')->check())
+                    <div class="text-end d-flex">
+                        <a href="/users/dashboard"><button type="button"
+                                class="btn btn-success me-2">Dashboard</button></a>
+                        <form action="/users/logout" method="post">
+                            @csrf
+                            <li style="list-style: none"><button class="btn btn-danger" type="submit">Logout</button>
+                            </li>
+                        </form>
+                    </div>
+                @else
+                    <div class="text-end">
+                        <a href="/login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                        <a href="/register"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                    </div>
+                @endif
+
             </div>
         </div>
     </header>

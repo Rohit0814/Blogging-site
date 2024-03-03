@@ -19,7 +19,7 @@ Route::post('/create-session',[ExampleController::class,'createSession']);
 Route::group(['middleware'=> 'blog', 'prefix'=> '/users'], function () {
     Route::post('/logout',[ExampleController::class,'logout']);
     Route::get('/post',[BlogPostController::class,'post']);
-    Route::post('/posts',[ExampleController::class,'create_post']);
+    Route::post('/posts',[BlogPostController::class,'create_post']);
     Route::get('/profile',[ExampleController::class,'profile']);
     Route::get('/dashboard',[ExampleController::class,'dashboard'])->name('users.dashboard');
 });

@@ -10,7 +10,9 @@ use App\Models\Blogger;
 class ExampleController extends Controller
 {
     public function index(){
-        return view("welcome");
+        $post = Post::all();
+        $data = compact("post");
+        return view("welcome")->with($data);
     }
 
     public function about(){
@@ -76,7 +78,7 @@ class ExampleController extends Controller
 
     $credentials = $request->only('email', 'password');
         if(Auth::guard('blogger')->attempt($credentials)){
-            return redirect('/users/dashboard');
+            return redirect('/');
         }
         else{
             return redirect('/login');
