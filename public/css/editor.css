@@ -89,3 +89,28 @@
     flex-wrap: wrap;
     width: 350px;
 }
+
+
+.upload-img{
+    position: absolute;
+    display: inline-block;
+    padding-left: 10px;
+    background-color: white;
+}
+
+.upload-img .upload-btn{
+    background:none;
+}
+
+.Achcor-link{
+    position: absolute;
+    background-color: white;
+    display: inline-block;
+    padding-right: 10px;
+    min-width: 156px;
+}
+.Achcor-link .Anchor-btn{
+    background-color: white;
+    color: black;
+    width: 100%;
+}

@@ -39,9 +39,11 @@
                         <option>20</option>
                     </select>
 
-                    <button style="font-size:20px; background:rgb(46, 46, 46); border:none; color:white"><i
+                    <button type="button"
+                        style="font-size:20px; background:rgb(46, 46, 46); border:none; color:white"><i
                             class="fa-solid fa-subscript"></i></button>
-                    <button style="font-size:18px; background:rgb(46, 46, 46); border:none; color:white"><i
+                    <button type="button"
+                        style="font-size:18px; background:rgb(46, 46, 46); border:none; color:white"><i
                             class="fa-solid fa-superscript"></i></button>
 
                     <span style="color:rgb(161, 159, 159); font-size:20px;">|</span>
@@ -93,30 +95,34 @@
 
                     <span style="color:rgb(161, 159, 159); font-size:20px;">|</span>
 
-                    <button style=""><i class="fa-solid fa-align-left"></i></button>
-                    <button style=""><i class="fa-solid fa-align-center"></i></button>
-                    <button style=""><i class="fa-solid fa-align-right"></i></button>
-                    <button style=""><i class="fa-solid fa-align-justify"></i></button>
+                    <button type="button" style=""><i class="fa-solid fa-align-left"></i></button>
+                    <button type="button" style=""><i class="fa-solid fa-align-center"></i></button>
+                    <button type="button" style=""><i class="fa-solid fa-align-right"></i></button>
+                    <button type="button" style=""><i class="fa-solid fa-align-justify"></i></button>
                     &nbsp;&nbsp;&nbsp;
                     <span style="color:rgb(161, 159, 159); font-size:20px;">|</span>
                     &nbsp;&nbsp;&nbsp;
 
+                    <div class="upload-img">
+                        <span class="upload-text">Upload Image</span>
+                        <button type="button" class="btn upload-btn"><i class="fa-solid fa-upload"></i></button>
+                    </div>
 
                 </div>
                 <div class="font-style-bot">
-                    <button style=" font-weight:bolder">B</button>
-                    <button style=" font-style:italic">I</button>
-                    <button style=" text-decoration:underline">U</button>
-                    <button style=" text-decoration: line-through">ab</button>
-                    <button>x<sub>2</sub></button>
-                    <button>x<sup>2</sup></button>
+                    <button type="button" style=" font-weight:bolder">B</button>
+                    <button type="button" style=" font-style:italic">I</button>
+                    <button type="button" style=" text-decoration:underline">U</button>
+                    <button type="button" style=" text-decoration: line-through">ab</button>
+                    <button type="button">x<sub>2</sub></button>
+                    <button type="button">x<sup>2</sup></button>
                     <span style="color: rgb(161, 159, 159); font-size:20px;">|</span>
-                    <button style="width:fit-content";>
+                    <button type="button" style="width:fit-content";>
                         <input type="color" placeholder="Highlight">
                         <span style="display: inline;"><i class="fa-solid fa-highlighter"></i></span>
                     </button>
 
-                    <button style="width:fit-content";>
+                    <button type="button" style="width:fit-content";>
                         <input type="color" placeholder="Font-color">
                         <span style="display: inline;"><i class="fa-solid fa-paintbrush"></i></span>
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -134,6 +140,10 @@
                     <span style="color:rgb(161, 159, 159); font-size:20px;">|</span>
                     &nbsp;&nbsp;&nbsp;
 
+                    <div class="Achcor-link">
+                        <button type="button" class="btn Anchor-btn"><i class="fa-solid fa-link"></i>
+                            HyperLink</button>
+                    </div>
 
                 </div>
             </div>
