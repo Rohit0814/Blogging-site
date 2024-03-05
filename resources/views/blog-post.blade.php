@@ -17,7 +17,7 @@
             <br>
             <div class="full-width">
                 <div>
-                    <select class="select-font">
+                    <select class="select-font" onchange="fontSelected()" id="select-font">
                         <optgroup label="Theme Fonts">
                             <option>calibri</option>
                             <option>calibri Light</option>
@@ -110,10 +110,10 @@
 
                 </div>
                 <div class="font-style-bot">
-                    <button type="button" style=" font-weight:bolder">B</button>
-                    <button type="button" style=" font-style:italic">I</button>
-                    <button type="button" style=" text-decoration:underline">U</button>
-                    <button type="button" style=" text-decoration: line-through">ab</button>
+                    <button type="button" id="text-bold" style=" font-weight:bolder">B</button>
+                    <button type="button" id="text-italic" style=" font-style:italic">I</button>
+                    <button type="button" id="text-underline" style=" text-decoration:underline">U</button>
+                    <button type="button" id="text-strik" style=" text-decoration: line-through">ab</button>
                     <button type="button">x<sub>2</sub></button>
                     <button type="button">x<sup>2</sup></button>
                     <span style="color: rgb(161, 159, 159); font-size:20px;">|</span>
@@ -147,7 +147,7 @@
 
                 </div>
             </div>
-            <textarea rows="18" name="content" placeholder="Start Writing Here....."
+            <textarea rows="18" name="content" id="content-area" placeholder="Start Writing Here....."
                 style="width:100%; resize:none; padding:20px 20px; font-size:17px">{{ old('content') }}</textarea><br>
             <span style="color:red; font-weight:bolder">
                 @error('content')
