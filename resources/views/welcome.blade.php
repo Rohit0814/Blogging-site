@@ -22,12 +22,16 @@
                 @foreach ($post as $p)
                     <div class="col-md-6">
                         <div
-                            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            class="row g-0 border rounded d-flex overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                             <div class="col p-4 d-flex flex-column position-static">
                                 <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
                                 <h3 class="mb-0">{{ $p->title }}</h3>
                                 <div class="mb-1 text-body-secondary">{{ $p->created_at->format('jS M') }}</div>
-                                <p class="card-text mb-auto">{{ Str::limit($p->content, 80, ' ...') }}</p>
+                                <p class="card-text mb-auto"
+                                    style="width: 385px; overflow: hidden; text-overflow: ellipsis;">
+                                    {{ str_word_count(strip_tags($p->content)) > 20 ? implode(' ', array_slice(str_word_count(strip_tags($p->content), 1), 0, 20)) . '...' : strip_tags($p->content) }}
+                                </p>
+
                                 <a href="/posts/content/{{ $p->post_id }}"
                                     class="icon-link gap-1 icon-link-hover stretched-link">
                                     Continue reading

@@ -28,9 +28,12 @@
                     <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <a href=# style="color:black; text-decoration:none"><strong
+                                <a href="#" style="color:black; text-decoration:none"><strong
                                         class="text-gray-dark">{{ $p->title }}</strong></a>
-                                <span class="d-block">{{ Str::limit($p->content, 50, '...') }}</span>
+                                <p class="card-text mb-auto"
+                                    style="width: 385px; overflow: hidden; text-overflow: ellipsis;">
+                                    {{ str_word_count(strip_tags($p->content)) > 9 ? implode(' ', array_slice(str_word_count(strip_tags($p->content), 1), 0, 9)) . '...' : strip_tags($p->content) }}
+                                </p>
                             </div>
 
                             <div class="d-flex">
@@ -38,18 +41,15 @@
                                     <i class="fa-solid fa-pen-to-square"></i></a> &nbsp; &nbsp;
                                 <form action="/posts/delete/{{ $p->post_id }}" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Move
-                                        to Trash <i class="fa-brands fa-bitbucket"></i></a>
+                                    <button type="submit" class="btn btn-danger">Move to Trash
+                                        <i class="fa-brands fa-bitbucket"></i> </button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
-
-
         </div>
-
     </x-user-view>
 
 </body>
