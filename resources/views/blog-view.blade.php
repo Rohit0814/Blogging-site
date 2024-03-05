@@ -8,7 +8,7 @@
             <p class="blog-post-meta">{{ $post->created_at->format('jS M') }} by <a
                     href="#">{{ $post->blogger->first_name }} {{ $post->blogger->last_name }}</a></p>
 
-            <p style="text-align: justify">{{ $post->content }}</p>
+            <p style="text-align: justify">{!! $post->content !!}</p>
         </article>
     </div>
 @endsection

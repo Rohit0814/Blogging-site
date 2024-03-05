@@ -119,3 +119,12 @@
     background: rgb(100, 100, 100) !important;
     color:rgb(255, 255, 255) !important;
 }
+
+#content-area {
+    width: 100%;
+    min-height: 500px; /* Set a minimum height for the content area */
+    border: 1px solid #ccc;
+    padding: 20px;
+    font-size: 17px;
+    outline: none; /* Remove the default outline when the div is focused */
+  }
