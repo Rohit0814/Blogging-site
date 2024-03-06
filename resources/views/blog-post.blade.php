@@ -17,34 +17,26 @@
             <br>
             <div class="full-width">
                 <div>
-                    <select class="select-font" onchange="fontSelected()" id="select-font">
-                        <optgroup label="Theme Fonts">
-                            <option>calibri</option>
-                            <option>calibri Light</option>
+                    <select class="select-font" id="select-font">
+                        <optgroup label="Theme Fonts" id="theme-font-select">
+                            {{-- <option>calibri</option>
+                            <option>calibri Light</option> --}}
                         </optgroup>
-                        <optgroup label="All Fonts">
-                            <option>Algerian</option>
-                            <option>Arial Black</option>
-                            <option>Aptos</option>
-                            <option>Arial Narrow</option>
+                        <optgroup label="All Fonts" id="all-font-select">
+                            {{-- all font display by js --}}
                         </optgroup>
                     </select>
 
-                    <select class="select-font-size">
-                        <option>1</option>
-                        <option>12</option>
-                        <option>14</option>
-                        <option>16</option>
-                        <option>18</option>
-                        <option>20</option>
+                    <select class="select-font-size" id="font-size">
+                        {{-- All type of font available --}}
                     </select>
 
                     <button type="button"
-                        style="font-size:20px; background:rgb(46, 46, 46); border:none; color:white"><i
-                            class="fa-solid fa-subscript"></i></button>
+                        style="font-size:20px; background:rgb(46, 46, 46); border:none; color:white">A<sup><i
+                                class="fa-solid fa-angle-up"></i></sup></button>
                     <button type="button"
-                        style="font-size:18px; background:rgb(46, 46, 46); border:none; color:white"><i
-                            class="fa-solid fa-superscript"></i></button>
+                        style="font-size:18px; background:rgb(46, 46, 46); border:none; color:white">A<sup><i
+                                class="fa-solid fa-angle-down"></i></sup></button>
 
                     <span style="color:rgb(161, 159, 159); font-size:20px;">|</span>
 
